@@ -8,7 +8,7 @@ import {
   likePost,
 } from "../controllers/posts.js";
 
-import auth from '../middleware/auth.js'
+import auth from "../middleware/auth.js";
 
 const router = new Router();
 

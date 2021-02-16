@@ -14,7 +14,7 @@ function Form({ currentId, setCurrentId }) {
     tags: "",
     selectedFile: "",
   });
-  const user = JSON.parse(localStorage.getItem('profile'))
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const post = useSelector((state) => {
     if (currentId) {
@@ -33,7 +33,9 @@ function Form({ currentId, setCurrentId }) {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name }),
+      );
     } else {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
     }
@@ -43,11 +45,11 @@ function Form({ currentId, setCurrentId }) {
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
-        <Typography variant='h6' align='center'>
+        <Typography variant="h6" align="center">
           Пожалуйста войдите в аккаунт, чтобы создать воспоминание
         </Typography>
       </Paper>
-    )
+    );
   }
 
   const clear = () => {

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import { Container, Grow, Grid } from "@material-ui/core";
-import Posts from '../Posts/Posts';
-import Form from '../Form/Form'
+import Posts from "../Posts/Posts";
+import Form from "../Form/Form";
 import { useDispatch } from "react-redux";
 import { getPosts } from "../../actions/posts";
-
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ export default function Home() {
   useEffect(() => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
-
 
   return (
     <Grow in>
@@ -34,5 +32,5 @@ export default function Home() {
         </Grid>
       </Container>
     </Grow>
-  )
+  );
 }
