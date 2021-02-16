@@ -9,12 +9,12 @@ function Form({ currentId, setCurrentId }) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [postData, setPostData] = useState({
-    creator: "",
     title: "",
     message: "",
     tags: "",
     selectedFile: "",
   });
+  const user = JSON.parse(localStorage.getItem('profile'))
 
   const post = useSelector((state) => {
     if (currentId) {
@@ -29,20 +29,29 @@ function Form({ currentId, setCurrentId }) {
     }
   }, [post]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
     }
     clear();
   };
 
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant='h6' align='center'>
+          Пожалуйста войдите в аккаунт, чтобы создать воспоминание
+        </Typography>
+      </Paper>
+    )
+  }
+
   const clear = () => {
     setPostData({
-      creator: "",
       title: "",
       message: "",
       tags: "",
@@ -60,18 +69,8 @@ function Form({ currentId, setCurrentId }) {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? "Editing" : "Creating"} a Memory
+          {currentId ? "Измение" : "Создание"} воспоминания
         </Typography>
-        <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
         <TextField
           name="title"
           variant="outlined"
@@ -117,7 +116,7 @@ function Form({ currentId, setCurrentId }) {
           type="submit"
           fullWidth
         >
-          Submit
+          Отправить
         </Button>
         <Button
           variant="contained"
@@ -126,7 +125,7 @@ function Form({ currentId, setCurrentId }) {
           onClick={clear}
           fullWidth
         >
-          Clear
+          Удалить
         </Button>
       </form>
     </Paper>
