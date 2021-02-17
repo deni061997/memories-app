@@ -33,7 +33,7 @@
 
 ## Страница авторизации
 
-(https://github.com/deni061997/memories-app/blob/main/client/public/images/AuthorizationPage.png)
+![Alt-текст](https://github.com/deni061997/memories-app/blob/main/client/public/images/AuthorizationPage.png)
 
 ## Главная страница после авторизации/регистрации пользователя
 
