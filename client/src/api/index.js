@@ -1,8 +1,12 @@
 import axios from "axios";
+import "dotenv/config";
 
-// const url = "https://memories-app11.herokuapp.com/posts";
+const url =
+  process.env.NODE_ENV === "production"
+    ? process.env.PRODUCTION_URL
+    : process.env.DEV_URL;
 
-const API = axios.create({ baseURL: "https://memories-app11.herokuapp.com/" });
+const API = axios.create({ baseURL: url });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
