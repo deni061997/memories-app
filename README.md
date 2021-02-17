@@ -25,11 +25,11 @@
 
 ## Главная страница
 
-(client/public/images/MainPage.png)
+![Alt-текст](https://github.com/deni061997/memories-app/blob/main/client/public/images/MainPage.png)
 
 ## Страница регистрации
 
-(client/public/images/RegistrationPage.png)
+![Alt-текст](https://github.com/deni061997/memories-app/blob/main/client/public/images/RegistrationPage.png)
 
 ## Страница авторизации
 
@@ -37,4 +37,4 @@
 
 ## Главная страница после авторизации/регистрации пользователя
 
-(client/public/images/MainPageAfterRegOrAuth.png)
+![Alt-текст](https://github.com/deni061997/memories-app/blob/main/client/public/images/MainPageAfterRegOrAuth.png)
