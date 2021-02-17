@@ -33,7 +33,7 @@
 
 ## Страница авторизации
 
-(client/public/images/AuthorizationPage.png)
+(https://github.com/deni061997/memories-app/blob/main/client/public/images/AuthorizationPage.png)
 
 ## Главная страница после авторизации/регистрации пользователя
 
